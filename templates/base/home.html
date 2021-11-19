@@ -1,0 +1,50 @@
+{% extends 'base/main.html' %}
+{% block content %}
+       <div class="dropdown">
+              <button class="drop-down-btn">topics</button>
+              <div class="drop-down-content">
+                     <br>
+                     <input type="text" placeholder="Search.....">
+                     {% for topic in topics %}
+                     <a href=" {% url 'sign-up' topic %}">{{topic}}</a>
+                     {% endfor %} 
+              </div>
+       </div>
+       {% if request.user.is_authenticated %}
+              <div class="body">
+                     <div class="post-body">
+                            <h1>Recent Posts</h1>
+                            <hr>
+                            <br>
+                            <a href="{% url 'create' %}">Create Post</a> 
+                            <br>
+                            {% for post in posts %}
+                                   <div class="post-body-content">
+                                          @{{post.author}} - <small><i>{{post.created}} </i></small> <br>
+                                          Topic: <a href="{% url 'sign-up' post.Topic %}">{{post.Topic}}</a>
+                                          {% if request.user.username == post.author.username %}
+                                                <span class="delete"><small><a href="{% url 'delete' post.id %}"> Delete</a></small></span> 
+                                          {% endif %}
+                                   </div>
+                            {% endfor %}
+                            
+                     </div>
+              </div>
+       {% else %}
+              <div class="body">
+                     <div class="post-body">
+                            <h1>Recent Posts</h1>
+                            <hr>
+                            <br>
+                            {% for post in posts %}
+                                   <div class="post-body-content">
+                                          @{{post.author}} - <small> <i>{{post.created}} </i></small> <br>
+                                          Topic: <a href="{% url 'sign-up' post.Topic %}">{{post.Topic}}</a>
+                                   </div>
+                            {% endfor %}
+                            
+                     </div>
+              </div>
+       {% endif %}
+
+{% endblock %}

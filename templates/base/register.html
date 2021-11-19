@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% if create %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h5> delete {{post_topic}}
+    <button type="submit" value="Submit">Submit</button>
+</form>
+{% endif %}
+
+{% if log %}
+{% if messages %}
+{% for message in messages %}
+    <small class="error">{{ message }}</small>
+{% endfor %}
+{% endif %}
+<div class="log-in-body">
+    <div class="log-in-form">
+        <div class="log-in-heading">
+            <h1>Welcome Back User</h1>
+        </div>
+        <form action="" method="POST" class="log-in-form-content">
+        {% csrf_token %}
+            <div class="items-in-form">
+                <input type="text" placeholder="Username/Email/Phone NO" required name="username"> <br>
+                <label for="username"> Username </label>
+            </div>
+            <div class="items-in-form">
+                <input type="password" required name="password" placeholder="************"> <br>
+                <label for="password"> Password </label>
+            </div>
+            <div class="items-in-form checkbox">
+                <input type="checkbox" required placeholder="Remember me"> Remember me <br>
+                <button type="submit" value="submit">Log-in</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+{% endif %}
+</body>
+</html>
