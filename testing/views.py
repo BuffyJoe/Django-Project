@@ -17,6 +17,16 @@ def index(request):
      comment = comments.objects.all()
      return render(request, 'base/home.html', {'friend':friend, 'posts' : posts, 'topics' : topics, 'comments' : comment})
 
+def personalprofile(request):
+     context = {}
+     try:
+          posts = post.objects.filter(author = request.user)
+          context = {
+          'posts' : posts
+          }
+          return render(request, 'base/profile.html', context)
+     except:
+          return render(request, 'base/profile.html')
 
 @login_required(login_url='Login')
 def profile(request, pk):

@@ -1,0 +1,108 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+<body>
+    
+    <div class="body">
+        <div class="top">
+            <div class="input">
+                <input type="text" placeholder="search.....">
+            </div>
+            <div class="links">
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'home' %}"> Home </a>
+                <a href="{% url 'profile' %}"> Profile</a>
+                <a href="{% url 'log-out' %}"> Log-out </a>
+                {% else %}
+                <a href="{% url 'Login' %}"> Log-in </a>
+                {% endif %}
+            </div>
+            <div class="sign">
+                <a href=""> Sign in</a>
+            </div>
+        </div>
+        {% if request.user.is_authenticated %}
+
+        <div class="bottom">
+            <div class="left">
+                <div class="profile">
+                    <div class="img">
+                        <img src="{% static 'images/NIGERIA.JPG' %}" alt="">
+                    </div>
+                    <div class="name">
+                        <large class="large"> @{{ request.user.username }}</large> <br>
+                        <small>he is a good man</small>
+                    </div>
+                    <hr>
+                    <div class="following">
+                        <large class="large">Following</large> <br>
+                        <small> <b> 34 </b> </small>
+                    </div>
+                    <hr>
+                    <div class="followers">
+                        <large class="large">Followers</large> <br>
+                        <small><b>156</b></small>
+                    </div>
+                    <br><br>
+                    <hr>
+                    <p>View Profile</p>
+                </div>
+                <div class="suggestions">
+                    <H1>TopPosts......</H1>
+                    <hr>
+                    {% for  post in posts %}
+                    <div class="people">
+                        <img src="{% static 'images/NIGERIA.JPG' %}" alt="Picture">
+                        <h3><b>{{post.author}}</b></h3>
+                        <span class="under">{{post.Topic}}</span>
+                        <small>{{post.post}}</small>
+                        <a href="{% url 'delete' post.id %}">Delete</a>
+                        <hr>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="middle">
+                <div class="post">
+                    <img src="{% static 'images/NIGERIA.JPG' %}" alt="Profile Pic">
+                    <a href="{% url 'create' %}"> <button> Post Feed</button></a>
+                    <button>Post Photo</button>
+                </div>
+
+                <div class="about">
+                    <H1>about</H1>
+                </div>
+                <div class="top-profile">
+                    <h1>Profiles</h1>
+                    
+                    <span class="profiles">
+                        <h1>hello</h1>
+                    </span>
+                    <span class="profiles">
+                            <h1>now</h1>
+                    </span>
+                </div>
+            </div>
+                <div class="feed">
+                    <H1>feed</H1>
+                </div>
+            </div>
+            <div class="right">
+                <div class="track">
+                    <H1>track</H1>
+                </div>
+
+                <div class="top-jobs">
+                    <H1>top-jobs</H1>
+                </div>
+
+                <div class="most-viewed">
+                    <H1>most-viewed</H1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html><br>

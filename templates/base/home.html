@@ -11,6 +11,7 @@
               </div>
        </div>
        {% if request.user.is_authenticated %}
+              <a href="{% url 'profile' %}">Profile </a>
               <div class="body">
                      <div class="post-body">
                             <h1>Recent Posts</h1>

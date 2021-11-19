@@ -1,0 +1,265 @@
+body{
+    width: 100%;
+    margin-left: 0px;
+    background-color: lightgray;
+    /* padding-left: 10px; */
+}
+.body{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 10fr;
+    grid-template-areas: 'top'
+    'bottom';
+}
+
+.top{
+    grid-area: top;
+    display: grid;
+    grid-template-columns: 3fr 8fr 3fr;
+    grid-template-areas: "search links sign";
+    background-color: red;
+    margin-bottom: 50px;
+    text-align: center;
+    margin-top: 15px;
+    opacity: 0.8;
+}
+
+.input{
+    grid-area: search;
+    border-right: solid white 2px;
+    padding-top: 10px;
+}
+.input input{
+    height: 30px;
+    width: 80%;
+    margin-right: -10px;
+    margin-left: 10px;
+    opacity: 1;
+}
+
+.links{
+    grid-area: links;
+    text-align: center;
+    border-right: solid white 2px;
+    opacity: 1;
+    padding-top: 10px;
+}
+
+.links a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding-right: 20px;
+    padding-left: 40px;
+}
+
+
+.sign{
+    grid-area: sign;
+    padding-top: 10px;
+}
+
+.sign a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    opacity: 1;
+}
+.bottom{
+    grid-area: bottom;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: "left middle right";
+    margin: -25px 15px 5px 15px;
+}
+
+.left{
+    grid-area: left;
+    display: grid;
+    grid-template-rows: 5fr 5fr;
+    grid-template-areas: 'profile'
+    'suggestions';
+    margin-right: 20px;
+}
+
+.profile{
+    position: relative;
+    grid-area: profile;
+    background-color: white;
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+    font-size: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    border-top: solid blue 100px;
+}
+
+.profile > p{
+    padding-bottom: 0px;
+    margin-bottom: -10px;
+    padding-top: -55px;
+}
+
+.large{
+    font-size: 25px;
+    font-weight: bold;
+    opacity: 0.8;
+}
+.name{
+    margin-top: 70px;
+}
+.name, .following, .followers{
+    text-decoration: bold;
+    padding-bottom: 30px;
+}
+.img img{
+    height: 120px;
+    border-radius: 50%;
+    border-bottom: solid black;
+    /* border-left: solid black; */
+}
+.img{
+    position: absolute;
+    top: -50px;
+    left: 15%;
+}
+.suggestions{
+    grid-area: suggestions;
+    background-color: white;
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+    height: fit-content;
+}
+.people{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.people h3, .under{
+    margin-bottom: 0px;
+    padding-left: 50px;
+}
+
+.people img{
+    position: absolute;
+    padding-left: 0px;
+    height: 30px;
+    border-radius: 50%;
+    border: solid 2px;
+}
+
+.middle{
+    grid-area: middle;
+    display: grid;
+    grid-template-rows: 1fr 4fr 3fr auto;
+    grid-template-areas: 'post'
+    'about'
+    'top-profile'
+    'feed';
+    margin-right: 20px;
+}
+
+
+.post{
+    grid-area: post;
+    background-color: white;
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+    border-top: solid red 10px;
+    position: relative;
+}
+.post a > button{
+    position: absolute;
+    right: 10px;
+    font-size: 15px;
+    top: 30%;
+    padding: 10px;
+    background-color: red;
+    color: white;
+}
+
+.post button{
+    position: absolute;
+    right: 110px;
+    font-size: 15px;
+    top: 30%;
+    padding: 10px;
+    background-color: grey;
+    
+}
+
+.post img{
+    border: solid;
+    padding: 10px;
+    height:30px;
+    margin-left: 20px;
+    border-radius: 50%;
+}
+.about{
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+    grid-area: about;
+    background-color: white;
+    padding-left: 20px; 
+}
+
+.top-profile{
+    grid-area: top-profile;
+    border: solid red;
+    padding-left: 10px;
+
+}
+.profiles{
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 70%;
+    width: 20%;
+    /* display: inline-block; */
+    /* margin: 10px 0px 10px 0px; */
+    padding-left: 10px;
+    background-color: white;
+    /* display: grid;
+    grid-template-columns: 2fr 2fr 2fr; */
+}
+.top-profiles > div{
+    margin-left: 10px;
+    margin-right: -10px;
+}
+
+.feed{
+    background-color: white;
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+    grid-area: feed;
+}
+
+.right{
+    display: grid;
+    grid-area: right;
+    grid-template-rows: 2fr 5fr auto;
+    grid-template-areas: 
+    'track'
+    'top-jobs'
+    'most-viewed';
+}
+
+.track{
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+    grid-area: track;
+    background-color: white;
+}
+
+.top-jobs{
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+    grid-area: top-jobs;
+    background-color: white;
+}
+
+.most-viewed{
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+    grid-area: most-viewed;
+    background-color: white;
+}

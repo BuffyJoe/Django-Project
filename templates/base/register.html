@@ -12,7 +12,8 @@
     {% if create %}
     <form action="" method="POST">
         {% csrf_token %}
-        <h5> delete {{post_topic}}
+        <h3> delete post by: {{form.author}} </h3>
+        Topic: {{form.Topic}} <br>
     <button type="submit" value="Submit">Submit</button>
 </form>
 {% endif %}
