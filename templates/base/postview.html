@@ -1,0 +1,60 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/postview.css' %}">
+    <body>
+        <a href="{% url 'home' %}"> home</a>
+        <br><br>
+            <div class="body">
+                <h1>{{posts.Topic}}</h1>
+
+                <div class="post">
+                    <p>
+                        <span class="main-username"> <a href=""> @{{posts.author}} </a> </span>- <span class="time"><i>{{posts.created}} </i></span> <br>
+                        <b>{{posts}}</b>
+                        <form action="{% url 'like_post' %}" method="post">
+                            <input type="hidden" name="post_id" value="{{posts.id}}">
+                            {% if request.user not in liked_people %}
+                            <button type="submit", name="like", value="submit">Like</button>
+                            {% else %}
+                            <button type="submit", name="like", value="submit">unike</button>
+                            {% endif %}
+                            {% csrf_token %}
+                        </form>
+                        <small>{{posts.liked.all.count}}
+                            {% if posts.liked.all.count > 1 %} 
+                            likes
+                            {% else %}
+                            like
+                            {% endif %}
+                        </small>
+                    </p>
+                    {% if comments != None %}
+                        <div class="comment">
+                            <h3>Recent comments</h3>
+                            {% for comment in comments %}
+                                <div class="comment-content">
+                                    <p>
+                                        {% if request.user == comment.owner %}
+                                            <span class="username">@you </span> - <span class="time">{{comment.created}} </span> <br>
+                                            {{comment }}
+                                            <span class="delete"><small><a href="{% url 'delete-comment' comment.id %}"> Delete</a></small></span> 
+                                        {% else %}
+                                            <span class="username">@{{comment.owner}} </span> - <span class="time">{{comment.created}} </span> <br>
+                                            {{comment }}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            {% endfor %}
+                            {% include 'base/comment.html' %}
+                        </div>
+                    {% else %}
+                        <div class="comment">
+                            <h1>comment  add here</h1>
+                        </div>
+                    {% endif %}
+                </div>
+        </div>
+    </body>
+{% endblock %}
+

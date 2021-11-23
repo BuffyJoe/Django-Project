@@ -6,7 +6,7 @@
                      <br>
                      <input type="text" placeholder="Search.....">
                      {% for topic in topics %}
-                     <a href=" {% url 'sign-up' topic %}">{{topic}}</a>
+                            <a href=" {% url 'topic' topic|slugify %}">{{topic}}</a>
                      {% endfor %} 
               </div>
        </div>
@@ -22,7 +22,16 @@
                             {% for post in posts %}
                                    <div class="post-body-content">
                                           @{{post.author}} - <small><i>{{post.created}} </i></small> <br>
-                                          Topic: <a href="{% url 'sign-up' post.Topic %}">{{post.Topic}}</a>
+                                          Topic: <a href="{% url 'topic' post.Topic %}">{{post.Topic}}</a> <br>
+                                          <a href="{% url 'post' post.id %}">{{post}}</a> <br>
+                                          <small>
+                                                 {{post.liked.count}} 
+                                                 {% if post.liked.count > 1 %} 
+                                                        likes
+                                                 {% else %}
+                                                        like
+                                                 {% endif %}
+                                          </small>
                                           {% if request.user.username == post.author.username %}
                                                 <span class="delete"><small><a href="{% url 'delete' post.id %}"> Delete</a></small></span> 
                                           {% endif %}
@@ -40,12 +49,11 @@
                             {% for post in posts %}
                                    <div class="post-body-content">
                                           @{{post.author}} - <small> <i>{{post.created}} </i></small> <br>
-                                          Topic: <a href="{% url 'sign-up' post.Topic %}">{{post.Topic}}</a>
+                                          Topic: <a href="{% url 'topic' post.Topic %}">{{post.Topic}}</a> <br>   
                                    </div>
                             {% endfor %}
                             
                      </div>
               </div>
        {% endif %}
-
 {% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base/main.html' %}
+
+
+{% block content %}
+    {% if commentt %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h3> delete post by: {{form.owner}} </h3>
+            post: {{form.posts}} <br>
+            {{form.comment}}
+            <button type="submit" value="Submit">Delete</button>
+        </form>
+    {% endif %}
+
+
+
+    
+    {% if postt %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p>
+                delete post by: {{form.author}} <br>
+                Topic: {{form.Topic}} <br>
+                <button type="submit" value="Submit">Submit</button>
+            </p>
+        </form>
+    {% endif %}
+{% endblock %}

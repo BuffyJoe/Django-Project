@@ -1,0 +1,52 @@
+body{
+    /* background-color: blue; */
+    background-color: white;
+    margin-left: 20px;
+}
+.body{
+    /* background-color: blue; */
+    color: red;
+    padding: 20px;
+    border: solid black;
+    width: max-content;
+    background-color: burlywood;
+    margin-left: 20px;
+}
+.post{
+    background-color: gray;
+    font-size: 20px;
+    color: white;
+    border: solid white;
+    padding-left: 20px;
+    width: 800px;
+    position: relative;
+}
+
+.main-username a{
+    text-decoration: underline;
+    color: inherit;
+    font-size: 23px;
+    opacity: 0.8;
+}
+
+.comment{
+    background-color: white;
+    color: black;
+    width: 60%;
+    padding: 20px;
+    margin-left: 100px;
+    margin-bottom: 40px;
+    border-radius: 25px;
+    border-top: solid red;
+    border-left: solid red;
+}
+
+.comment-content{
+    font-size: 15px;
+    position: relative;
+}
+
+.time{
+    font-size: 15px;
+    text-align: right;
+}

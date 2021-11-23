@@ -1,0 +1,16 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+   <h1> {{topic}} </h1> <hr>
+    <ul>
+        {% for post in posts %}
+            <li>
+                {{post.author}} <br>
+                {{post.Topic}} - {{post.created}} <br>
+                <a href="{% url 'post' post.id %}">{{post.post}} </a> <br>
+                <!-- {{post.comment}} -->
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -2,8 +2,7 @@
 
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
-<body>
-    
+<body>  
     <div class="body">
         <div class="top">
             <div class="input">
@@ -11,11 +10,11 @@
             </div>
             <div class="links">
                 {% if request.user.is_authenticated %}
-                <a href="{% url 'home' %}"> Home </a>
-                <a href="{% url 'profile' %}"> Profile</a>
-                <a href="{% url 'log-out' %}"> Log-out </a>
+                    <a href="{% url 'home' %}"> Home </a>
+                    <a href="{% url 'profile' %}"> Profile</a>
+                    <a href="{% url 'log-out' %}"> Log-out </a>
                 {% else %}
-                <a href="{% url 'Login' %}"> Log-in </a>
+                    <a href="{% url 'Login' %}"> Log-in </a>
                 {% endif %}
             </div>
             <div class="sign">
@@ -52,14 +51,14 @@
                     <H1>TopPosts......</H1>
                     <hr>
                     {% for  post in posts %}
-                    <div class="people">
-                        <img src="{% static 'images/NIGERIA.JPG' %}" alt="Picture">
-                        <h3><b>{{post.author}}</b></h3>
-                        <span class="under">{{post.Topic}}</span>
-                        <small>{{post.post}}</small>
-                        <a href="{% url 'delete' post.id %}">Delete</a>
-                        <hr>
-                    </div>
+                        <div class="people">
+                            <img src="{% static 'images/NIGERIA.JPG' %}" alt="Picture">
+                            <h3><b>{{post.author}}</b></h3>
+                            <span class="under">{{post.Topic}}</span>
+                            <small>{{post.post}}</small>
+                            <a href="{% url 'delete' post.id %}">Delete</a>
+                            <hr>
+                        </div>
                     {% endfor %}
                 </div>
             </div>

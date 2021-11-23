@@ -2,7 +2,6 @@ body{
     width: 100%;
     margin-left: 0px;
     background-color: lightgray;
-    /* padding-left: 10px; */
 }
 .body{
     display: grid;
@@ -117,7 +116,6 @@ body{
     height: 120px;
     border-radius: 50%;
     border-bottom: solid black;
-    /* border-left: solid black; */
 }
 .img{
     position: absolute;
@@ -214,12 +212,8 @@ body{
     margin-right: 10px;
     height: 70%;
     width: 20%;
-    /* display: inline-block; */
-    /* margin: 10px 0px 10px 0px; */
     padding-left: 10px;
     background-color: white;
-    /* display: grid;
-    grid-template-columns: 2fr 2fr 2fr; */
 }
 .top-profiles > div{
     margin-left: 10px;
