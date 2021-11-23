@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from .forms import postform, commentform
 # Create your views here.
+
 def index(request):
      posts = post.objects.all().order_by('-created')
      topics = topic.objects.all()
